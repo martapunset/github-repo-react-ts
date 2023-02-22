@@ -2,7 +2,7 @@ import styled from "styled-components"
 
 interface Props {
   imageUrl: string;
-  size: string;
+  isMobile:boolean;
 }
 
 export const RoundProfileImage = styled.div<Props>`
@@ -10,6 +10,6 @@ export const RoundProfileImage = styled.div<Props>`
   background-size: cover;
   background-position: center;
   border-radius: 50%;
-  width: ${props => props.size};
-  height: ${props => props.size};
+  width: ${(props) => (props.isMobile ? '150px': '300px')};
+  height: ${(props) => (props.isMobile ? '150px': '300px')};
 `;

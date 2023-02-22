@@ -1,10 +1,17 @@
 import React from 'react'
+import { SearchBar } from '../ui/SearchBar.style'
+
+export const SearchBarComponent: React.FC = () => {
 
 
-const SearchBar: React.FC = () => {
+
+
   return (
-    <div>SearchBar</div>
+    <SearchBar isMobile={true} placeholder="Search" />
+
+
+    
   )
+  
 }
 
-export default SearchBar
