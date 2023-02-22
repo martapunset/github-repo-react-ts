@@ -11,13 +11,14 @@ interface Props{
 
 
 const SidebarContent = styled.div`
-grid-area:sidebar;
+  grid-area:sidebar;
   padding: 16px;
-  padding-top:100px;
+  padding-top:50px;
   display: flex;
   flex-direction: column;
   //justify-content: center;
   align-items: center;
+  background-color: red;
 `;
 
 
@@ -25,7 +26,13 @@ export const SidebarComponent: React.FC<Props> = ({ isMobile, imageUrl } ) => {
   console.log("sidebarcomp", isMobile)
   return (
 
-    <SidebarContent><RoundProfileImage isMobile={isMobile} imageUrl={imageUrl } ></RoundProfileImage></SidebarContent>
+    <SidebarContent>
+      <RoundProfileImage isMobile={isMobile} imageUrl={imageUrl} >
+      
+      
+      </RoundProfileImage>
+    name
+    </SidebarContent>
 
   );
 }

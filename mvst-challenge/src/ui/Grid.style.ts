@@ -25,10 +25,11 @@ export const Container = styled.div<ContainerProps>`
     'sidebar main main main'
     ;`) };
     
-  grid-template-columns: 350px 1fr 1fr 1fr;
+  grid-template-columns: 390px 1fr 1fr 1fr;
   grid-template-rows: 100px 1fr 1fr;
   min-height: 100vh;
   max-width:1500px;
+  max-height:1200px;
  margin: 0 auto;
 `;
 
@@ -43,7 +44,7 @@ export const Header = styled.header<Props>`
 `;
 
 export const Sidebar = styled.aside<Props>`
-  grid-area: sidebar;
+  //grid-area: sidebar;
   background-color: #f2f2f2;
   padding: 16px;
 `;

@@ -6,6 +6,7 @@ interface Props {
 }
 
 export const RoundProfileImage = styled.div<Props>`
+
   background-image: url(${props => props.imageUrl});
   background-size: cover;
   background-position: center;

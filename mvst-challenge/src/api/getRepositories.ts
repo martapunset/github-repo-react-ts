@@ -25,6 +25,7 @@ export async function getRepositoriesByUser(username: string): Promise<Repositor
      language: repo.language,
       updated_at:repo.updated_at
     }));
+    console.log(repositories)
     return repositories;
   } catch (error) {
     console.error(`Error fetching repositories for user ${username}: ${error}`);
