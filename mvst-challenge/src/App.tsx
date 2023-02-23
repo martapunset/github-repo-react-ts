@@ -9,6 +9,10 @@ import { Container, Header,  Main } from "./ui/GridLayout.style";
 import { SidebarComponent } from "./components/SidebarComponents";
 import { AppContext } from "./AppContext/AppProvider";
 import { H1 } from "./ui/Text.style";
+import { TopBar } from "./ui/TopBar.style";
+
+
+
 const App: React.FC = () => {
   const [width, setWidth] = useState<number>(window.innerWidth);
 
@@ -16,7 +20,7 @@ const App: React.FC = () => {
     setWidth(window.innerWidth);
   }
   interface User {
-    avatar_url: string |null;
+    avatar_url: string;
     name: string|null;
     login: string;
     html_url: string;
@@ -27,7 +31,7 @@ const App: React.FC = () => {
 
 }
 
-  const [user, setUser] = useState<User>({
+  const [user, setUser] = useState({
     avatar_url: '',
     name: '',
     login: '',
@@ -72,11 +76,15 @@ const App: React.FC = () => {
           <SidebarComponent
             user={user}
             isMobile={isMobile}
-            imageUrl={`https://avatars.githubusercontent.com/u/107318883?v=4`}
+           
           ></SidebarComponent>
           <Main>
-            <SearchBarComponent />
-            <p>Main content goes here</p>
+            <TopBar><button>Overview</button>
+        <button>Repositories</button>
+        <button>Projects</button>
+        <button>Edit Profile</button></TopBar>
+            <SearchBarComponent isMobile={isMobile } />
+            
           </Main>
         </Container>
       </div>

@@ -11,6 +11,6 @@ export const RoundProfileImage = styled.div<Props>`
   background-size: cover;
   background-position: center;
   border-radius: 50%;
-  width: ${(props) => (props.isMobile ? '150px': '300px')};
-  height: ${(props) => (props.isMobile ? '150px': '300px')};
+  width: ${(props) => (props.isMobile ? '250px': '350px')};
+  height: ${(props) => (props.isMobile ? '250px': '350px')};
 `;

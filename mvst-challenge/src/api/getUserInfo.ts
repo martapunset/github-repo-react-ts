@@ -3,8 +3,8 @@ import axios from "axios";
 const BASE_URL:string = "https://api.github.com";
 
 interface User {
-    avatar_url: string |null;
-    name: string|null;
+    avatar_url: string ;
+    name: string;
     login: string;
     html_url: string;
     bio: string;
@@ -13,6 +13,17 @@ interface User {
     email: string;
 
 }
+
+const defaultUser: User = {
+  avatar_url: '',
+  name: '',
+  login: '',
+  html_url: '',
+  bio: '',
+  followers: 0,
+  following:0,
+  email: ''
+};
 
 export async function getUserInfo(username: string): Promise<User > {
     const url = `${BASE_URL}/users/${username}`;
@@ -37,7 +48,8 @@ export async function getUserInfo(username: string): Promise<User > {
    
   } catch (error) {
     console.error(`Error fetching user ${username}: ${error}`);
-    return null;
+    //console.log(user)
+    return defaultUser;
   }
 }
 

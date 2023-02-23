@@ -1,36 +1,42 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-
+interface User {
+  avatar_url: string | null;
+  name: string | null;
+  login: string;
+  html_url: string;
+  bio: string;
+  followers: number;
+  following: number;
+  email: string;
+}
 interface Props {
- 
-    children: React.ReactNode;
+  children: React.ReactNode;
   isMobile?: boolean;
-  user?: string;
-  }
+  user?: User;
+  imageUrl?: string;
+}
 
 interface ContainerProps {
-    isMobile: boolean;
-    children: React.ReactNode;
-   
-  }
+  isMobile: boolean;
+  children: React.ReactNode;
+}
 export const Container = styled.div<ContainerProps>`
   display: grid;
-  grid-template-areas:${ (props) => (props.isMobile ? 
-  
-  `'header '
+  grid-template-areas: ${(props) =>
+    props.isMobile
+      ? `'header '
     'sidebar '
    ' main ';`
-    :
-    `'header header header'
+      : `'header header header'
     'sidebar main main'
     'sidebar main main'
-    ;`) };
-    
-  grid-template-columns: ${ (props) => (props.isMobile ? `1fr:` : `1fr 1fr 1fr;`  )};
-    grid-template-rows: 80px 1fr;
- // min-height: 100vh;
+    ;`};
 
-
+  grid-template-columns: ${(props) =>
+    props.isMobile ? `100vw` : `1fr 1fr 1fr;`};
+  grid-template-rows: 80px 1fr;
+  // min-height: 100vh;
 `;
 
 export const Header = styled.header<Props>`
@@ -40,26 +46,25 @@ export const Header = styled.header<Props>`
   display: flex;
   align-items: center;
   justify-content: center;
-  width:100%;
-  position:relative;
+  width: 100%;
+  position: relative;
 `;
 
 export const SidebarContent = styled.div<Props>`
-  grid-area:sidebar;
+  grid-area: sidebar;
   padding: 16px;
-  padding-top:50px;
+  padding-top: 50px;
   display: flex;
   flex-direction: column;
-  //justify-content: center;
+
   align-items: center;
-  background-color: red;
-  height: ${(props) => (props.isMobile ? `200px`:`100%`)};
+  height: ${(props) => (props.isMobile ? `520px` : `100%`)};
+  
 `;
 
 export const Main = styled.main<Props>`
   grid-area: main;
   background-color: #fff;
   padding: 16px;
-  padding-top: 100px;
- 
+  //padding-top: 50px;
 `;
