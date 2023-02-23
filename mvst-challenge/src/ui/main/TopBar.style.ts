@@ -5,18 +5,16 @@ export const TopBar = styled.div`
   align-items: center;
   justify-content: flex-start;
   height: 40px;
-  //background-color: #f6f8fa;
- // padding: 0 16px;
   border-bottom:1px solid grey;
-  margin:20px;
- width:100%;
+  margin: 20px 10px 20px 10px;
+
 
   & > button {
    
 
    // cursor: pointer;
    background-color: transparent;
-    font-size: 16px;
+    font-size: 17px;
     font-weight: 600;
     line-height: 20px;
     padding: 7px 16px;
@@ -28,7 +26,7 @@ export const TopBar = styled.div`
 
     &:hover {
      // background-color: #22863a;
-      border-bottom:2px solid orange;
+      border-bottom:3px solid orange;
     }
 
     &:active {

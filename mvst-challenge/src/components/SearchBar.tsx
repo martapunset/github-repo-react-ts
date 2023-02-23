@@ -1,10 +1,10 @@
 import React from "react";
-import { SearchBar } from "../ui/SearchBar.style";
+import { SearchBar } from "../ui/main/SearchBar.style";
 import { useState, useEffect } from "react";
 import { getRepositoriesByUser } from "../api/getRepositories";
 import styled from "styled-components";
-import { StarButton } from "../ui/Button.style";
-import { SearchButton } from "../ui/Button.style";
+import { StarButton } from "../ui/page-layout-grid/Button.style";
+import { SearchButton } from "../ui/page-layout-grid/Button.style";
 interface Repos {
   id: number;
   name: string;
@@ -15,11 +15,9 @@ interface Repos {
 }
 interface Props {
   isMobile: boolean;
-
 }
 
-
-export const SearchBarComponent: React.FC<Props> = ({isMobile}) => {
+export const SearchBarComponent: React.FC<Props> = ({ isMobile }) => {
   const [repos, setrepos] = useState<Repos[]>([]);
   const [searchTerm, setSearchTerm] = useState<string>("");
 
@@ -31,7 +29,6 @@ export const SearchBarComponent: React.FC<Props> = ({isMobile}) => {
 
     fetchData();
   }, []);
-  console.log("holidata", repos);
 
   const handleSearchInputChange = (
     event: React.ChangeEvent<HTMLInputElement>
@@ -44,15 +41,18 @@ export const SearchBarComponent: React.FC<Props> = ({isMobile}) => {
   let data: Repos;
 
   return (
-    <><div><SearchBar
-    type="text"
-    value={searchTerm}
-    onChange={handleSearchInputChange}
-    isMobile={isMobile}
-    placeholder="Find a repository..."
-  /><SearchButton>Type All</SearchButton></div>
-      
-      
+    <>
+      <div>
+        <SearchBar
+          type="text"
+          value={searchTerm}
+          onChange={handleSearchInputChange}
+          isMobile={isMobile}
+          placeholder="Find a repository..."
+        />
+        <SearchButton>Type All</SearchButton>
+      </div>
+
       <div>
         {filteredUsers.length === 0 && <p>No results found.</p>}
 
@@ -65,8 +65,8 @@ export const SearchBarComponent: React.FC<Props> = ({isMobile}) => {
                   <div>
                     <StyledSpan>{item.language}</StyledSpan>
                     <StyledSpan>Modified {item.updated_at}</StyledSpan>
-                </div>
-                <StarButton>Star</StarButton>
+                  </div>
+                  {!isMobile && <StarButton>Star</StarButton>}
                 </div>
               </ContainerRepo>
             ))
@@ -78,21 +78,15 @@ export const SearchBarComponent: React.FC<Props> = ({isMobile}) => {
                   <div>
                     <StyledSpan>{item.language}</StyledSpan>
                     <StyledSpan>{item.updated_at}</StyledSpan>
+                  </div>
+                  {!isMobile && <StarButton>Star</StarButton>}
                 </div>
-                <StarButton>Star</StarButton>
-                
-               
-              </div>
-            
-              
               </ContainerRepo>
             ))}
       </div>
     </>
   );
 };
-
-
 
 const StyledSpan = styled.span`
   padding-right: 10px;
@@ -103,7 +97,6 @@ const StyledH2 = styled.h2`
   color: blue;
 `;
 const ContainerRepo = styled.div`
-  
   height: 80px;
   margin: 10px;
   display: flex;
@@ -113,6 +106,5 @@ const ContainerRepo = styled.div`
   align-items: flex-start;
   background-color: light-grey;
   border-top: 1px solid grey;
-  position:relative;
+  position: relative;
 `;
-
