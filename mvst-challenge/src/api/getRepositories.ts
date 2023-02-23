@@ -3,6 +3,7 @@ import axios from "axios";
 const BASE_URL = "https://api.github.com";
 
 interface Repository {
+  id:number
   name: string;
   html_url: string;
     description: string;
@@ -19,6 +20,7 @@ export async function getRepositoriesByUser(username: string): Promise<Repositor
       const response = await axios.get(url, {headers});
       console.log("..raw response....",response.data)
     const repositories = response.data.map((repo: any) => ({
+      id:repo.id,
       name: repo.name,
       html_url: repo.html_url,
      description: repo.description,

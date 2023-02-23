@@ -4,7 +4,8 @@ import styled from 'styled-components';
 interface Props {
  
     children: React.ReactNode;
- 
+  isMobile?: boolean;
+  user?: string;
   }
 
 interface ContainerProps {
@@ -16,21 +17,20 @@ export const Container = styled.div<ContainerProps>`
   display: grid;
   grid-template-areas:${ (props) => (props.isMobile ? 
   
-  `'header header header header'
-    'sidebar sidebar sidebar sidebar'
-   ' main main main main';`
+  `'header '
+    'sidebar '
+   ' main ';`
     :
-    `'header header header header'
-    'sidebar main main main'
-    'sidebar main main main'
+    `'header header header'
+    'sidebar main main'
+    'sidebar main main'
     ;`) };
     
-  grid-template-columns: 390px 1fr 1fr 1fr;
-  grid-template-rows: 100px 1fr 1fr;
-  min-height: 100vh;
-  max-width:1500px;
-  max-height:1200px;
- margin: 0 auto;
+  grid-template-columns: ${ (props) => (props.isMobile ? `1fr:` : `1fr 1fr 1fr;`  )};
+    grid-template-rows: 80px 1fr;
+ // min-height: 100vh;
+
+
 `;
 
 export const Header = styled.header<Props>`
@@ -41,12 +41,19 @@ export const Header = styled.header<Props>`
   align-items: center;
   justify-content: center;
   width:100%;
+  position:relative;
 `;
 
-export const Sidebar = styled.aside<Props>`
-  //grid-area: sidebar;
-  background-color: #f2f2f2;
+export const SidebarContent = styled.div<Props>`
+  grid-area:sidebar;
   padding: 16px;
+  padding-top:50px;
+  display: flex;
+  flex-direction: column;
+  //justify-content: center;
+  align-items: center;
+  background-color: red;
+  height: ${(props) => (props.isMobile ? `200px`:`100%`)};
 `;
 
 export const Main = styled.main<Props>`

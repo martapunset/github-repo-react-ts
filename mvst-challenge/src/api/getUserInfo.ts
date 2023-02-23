@@ -14,7 +14,7 @@ interface User {
 
 }
 
-export async function getUserInfo(username: string): Promise<User | null> {
+export async function getUserInfo(username: string): Promise<User > {
     const url = `${BASE_URL}/users/${username}`;
     const headers: object = { Authorization: `Bearer ${import.meta.env.VITE_GITHUB_TOKEN}` }; 
 
