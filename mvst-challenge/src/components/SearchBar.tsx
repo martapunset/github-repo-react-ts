@@ -5,6 +5,7 @@ import { getRepositoriesByUser } from "../api/getRepositories";
 import styled from "styled-components";
 import { StarButton } from "../ui/page-layout-grid/Button.style";
 import { SearchButton } from "../ui/page-layout-grid/Button.style";
+import { daysAgo } from "../helpers/daysAgoFunction";
 interface Repos {
   id: number;
   name: string;
@@ -16,6 +17,8 @@ interface Repos {
 interface Props {
   isMobile: boolean;
 }
+
+
 
 export const SearchBarComponent: React.FC<Props> = ({ isMobile }) => {
   const [repos, setrepos] = useState<Repos[]>([]);
@@ -40,6 +43,7 @@ export const SearchBarComponent: React.FC<Props> = ({ isMobile }) => {
   );
   let data: Repos;
 
+
   return (
     <>
       <div>
@@ -50,7 +54,7 @@ export const SearchBarComponent: React.FC<Props> = ({ isMobile }) => {
           isMobile={isMobile}
           placeholder="Find a repository..."
         />
-        <SearchButton>Type All</SearchButton>
+        <SearchButton>All</SearchButton>
       </div>
 
       <div>
@@ -58,29 +62,37 @@ export const SearchBarComponent: React.FC<Props> = ({ isMobile }) => {
 
         {!searchTerm
           ? repos.map((item) => (
-              <ContainerRepo key={item.id}>
+            <ContainerRepo key={item.id}>
+              <a href={item.html_url }>
                 <div>
                   <StyledH2>{item.name}</StyledH2>
                   <p>{item.description}</p>
                   <div>
                     <StyledSpan>{item.language}</StyledSpan>
-                    <StyledSpan>Modified {item.updated_at}</StyledSpan>
+                    <StyledSpan>Modified {
+     daysAgo(item.updated_at) 
+    
+  } days ago </StyledSpan>
                   </div>
-                  {!isMobile && <StarButton>Star</StarButton>}
-                </div>
+                 <StarButton>Star</StarButton>
+                </div></a>
               </ContainerRepo>
             ))
           : filteredUsers.map((item) => (
-              <ContainerRepo key={item.id}>
+            <ContainerRepo key={item.id}>
+               <a href={item.html_url }>
                 <div>
                   <StyledH2>{item.name}</StyledH2>
                   <p>{item.description}</p>
                   <div>
                     <StyledSpan>{item.language}</StyledSpan>
-                    <StyledSpan>{item.updated_at}</StyledSpan>
+                    <StyledSpan>Modified {
+     daysAgo(item.updated_at) 
+    
+  } days ago</StyledSpan>
                   </div>
-                  {!isMobile && <StarButton>Star</StarButton>}
-                </div>
+                 <StarButton>Star</StarButton>
+                </div></a>
               </ContainerRepo>
             ))}
       </div>
@@ -89,22 +101,24 @@ export const SearchBarComponent: React.FC<Props> = ({ isMobile }) => {
 };
 
 const StyledSpan = styled.span`
-  padding-right: 10px;
+  padding-right: 5px;
+  color:black;
 `;
 
 const StyledH2 = styled.h2`
   padding: 0;
-  color: blue;
+  color: #006eff;
 `;
 const ContainerRepo = styled.div`
-  height: 80px;
+
   margin: 10px;
   display: flex;
   flex-direction: column;
   padding-top: 20px;
   padding-bottom: 20px;
   align-items: flex-start;
-  background-color: light-grey;
-  border-top: 1px solid grey;
+  border-top: 1px solid #b0abab;
   position: relative;
+  color: black;
+ 
 `;

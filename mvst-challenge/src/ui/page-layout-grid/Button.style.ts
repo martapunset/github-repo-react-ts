@@ -1,12 +1,11 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const FollowButton = styled.button`
-
   border: 1px solid grey;
   border-radius: 6px;
-  margin-top:10px ;
-  margin-bottom:10px;
-  cursor: pointer;
+  margin-top: 10px;
+  margin-bottom: 10px;
+
   display: inline-block;
   font-size: 14px;
   font-weight: 600;
@@ -35,12 +34,11 @@ export const FollowButton = styled.button`
 `;
 
 export const StarButton = styled.button`
-
   border: 1px solid grey;
   border-radius: 10px;
-  margin-top:6px ;
-  margin-bottom:10px;
-  cursor: pointer;
+  margin-top: 6px;
+  margin-bottom: 10px;
+
   display: inline-block;
   font-size: 14px;
   font-weight: 600;
@@ -50,9 +48,9 @@ export const StarButton = styled.button`
   text-decoration: none;
   white-space: nowrap;
   width: 80px;
-  position:absolute;
-  right:0px;
-  top:10px;
+  position: absolute;
+  right: 0px;
+  top: 10px;
 
   &:hover {
     background-color: #f6f8fa;
@@ -71,14 +69,11 @@ export const StarButton = styled.button`
   }
 `;
 
-
 export const SearchButton = styled.button`
-
   border: 1px solid grey;
   border-radius: 10px;
-  margin-top:10px ;
-  margin-bottom:10px;
-  cursor: pointer;
+  margin-top: 10px;
+  margin-bottom: 10px;
   display: inline-block;
   font-size: 14px;
   font-weight: 600;
@@ -88,9 +83,7 @@ export const SearchButton = styled.button`
   text-decoration: none;
   white-space: nowrap;
   width: 80px;
-  
-  
-  
+
   &:hover {
     background-color: #f6f8fa;
     border-color: #c6cbd1;
@@ -107,4 +100,3 @@ export const SearchButton = styled.button`
     box-shadow: 0 0 0 3px rgba(46, 164, 79, 0.4);
   }
 `;
-
