@@ -5,13 +5,14 @@ interface SearchBarProps {
 }
 
 export const SearchBar = styled.input<SearchBarProps>`
-  padding: ${(props) => (props.isMobile ? '8px 12px' : '12px 16px')};
-  border: none;
-  border-radius: 20px;
+  padding: 14px 16px;
+  border: 1px solid grey;
+  border-radius: 10px;
   background-color: #f2f2f2;
-  font-size: ${(props) => (props.isMobile ? '16px' : '20px')};
-  width: ${(props) => (props.isMobile ? '300px' : '300px')};
+  font-size: ${(props) => (props.isMobile ? '15px' : '18px')};
+  width: ${(props) => (props.isMobile ? '200px' : '500px')};
   margin-right: ${(props) => (props.isMobile ? '0' : '16px')};
+  margin:10px;
   transition: all 0.2s ease-in-out;
   &:focus {
     outline: none;

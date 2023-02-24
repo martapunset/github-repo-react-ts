@@ -1,36 +1,60 @@
 import React from "react";
 import styled from "styled-components";
-import { RoundProfileImage } from "../ui/RoundProfileImage.style";
-import { SidebarContent } from "../ui/GridLayout.style";
+import { RoundProfileImage } from "../ui/sidebar/RoundProfileImage.style";
+import { SidebarContent } from "../ui/page-layout-grid/GridLayout.style";
+import { FollowButton } from "../ui/page-layout-grid/Button.style";
 interface User {
-  avatar_url: string |null;
-  name: string|null;
+  avatar_url: string;
+  name: string | null;
   login: string;
   html_url: string;
   bio: string;
   followers: number;
   following: number;
   email: string;
-
 }
 interface Props {
   isMobile: boolean;
-  imageUrl: string;
+
   user: User;
-  // children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
-export const SidebarComponent: React.FC<Props> = ({ user, isMobile, imageUrl }) => {
-  console.log("sidebarcomp",user, isMobile);
+export const SidebarComponent: React.FC<Props> = ({ user, isMobile }) => {
   return (
-    <SidebarContent   user={user}  isMobile={isMobile}> 
+    <SidebarContent user={user} isMobile={isMobile}>
       <RoundProfileImage
         isMobile={isMobile}
-        imageUrl={imageUrl}
+        imageUrl={user.avatar_url}
       ></RoundProfileImage>
-
-      {user.login}
-  
+      <UserInfoDiv>
+        <h2>{user.name}</h2>
+        <p>@{user.login}</p>
+        <p>{user.bio}</p>
+        <FollowButton>Follow</FollowButton>
+        <div>
+          <StyledSpan>
+            <strong>{user.followers}</strong> followers
+          </StyledSpan>{" "}
+          .
+          <StyledSpan>
+            <strong>{user.following}</strong> following
+          </StyledSpan>
+        </div>
+        <p>{user.email}</p>
+      </UserInfoDiv>
     </SidebarContent>
   );
 };
+
+
+const UserInfoDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 50px;
+  max-width: 300px;
+`;
+const StyledSpan = styled.span`
+  padding-right: 10px;
+`;
