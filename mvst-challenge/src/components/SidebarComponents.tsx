@@ -22,7 +22,7 @@ export const SidebarComponent: React.FC<Props> = ({ user, isMobile }) => {
         <h2>{user.name}</h2>
         <p>@{user.login}</p>
         <p>{user.bio}</p>
-        <FollowButton>Follow</FollowButton>
+        <FollowButton><a href={user.html_url }>User Profile</a></FollowButton>
         <div>
           <StyledSpan>
             <strong>{user.followers}</strong> followers
