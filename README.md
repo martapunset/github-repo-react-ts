@@ -111,8 +111,9 @@ To start project run in the terminal `npm run dev`
 
 ## Future implements
 
--Search bar in the header for USERS search
--Night mode
+- USERS searchbar in header component
+- Night mode
+- Skeleton for loading
 
 
 ## Feedback
