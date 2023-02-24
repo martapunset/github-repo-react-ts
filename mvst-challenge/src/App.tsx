@@ -1,4 +1,4 @@
-import { useState, useEffect, lazy} from "react";
+import { useState, useEffect, lazy } from "react";
 import styled from "styled-components";
 import { getUserInfo } from "./api/getUserInfo";
 import { Suspense } from "react";
@@ -10,17 +10,26 @@ import {
 } from "./ui/page-layout-grid/GridLayout.style";
 import { SidebarComponent } from "./components/SidebarComponents";
 import { TopBar } from "./ui/main/TopBar.style";
-//import { SearchBarComponent } from "./components/SearchBar";
 
-const SearchBarComponent=lazy(()=>import('./components/SearchBar'))
+const SearchBarComponent = lazy(() => import("./components/SearchBar"));
 
 const App: React.FC = () => {
   const [width, setWidth] = useState<number>(window.innerWidth);
+  let isMobile: boolean = width <= 800;
 
+  /**
+   * This function sets the width of the window for responsive
+   */
   function handleWindowSizeChange(): void {
     setWidth(window.innerWidth);
   }
 
+  useEffect(() => {
+    window.addEventListener("resize", handleWindowSizeChange);
+    return () => {
+      window.removeEventListener("resize", handleWindowSizeChange);
+    };
+  }, [window.innerWidth]);
 
   const [user, setUser] = useState({
     avatar_url: "",
@@ -42,16 +51,6 @@ const App: React.FC = () => {
     fetchData();
   }, []);
 
-
-  useEffect(() => {
-    window.addEventListener("resize", handleWindowSizeChange);
-    return () => {
-      window.removeEventListener("resize", handleWindowSizeChange);
-    };
-  }, [window.innerWidth]);
-  let isMobile: boolean = width <= 800;
-
-
   return (
     <>
       <div className="App">
@@ -69,7 +68,7 @@ const App: React.FC = () => {
             </TopBar>
             <Suspense fallback={<div>Loading...</div>}>
               <SearchBarComponent isMobile={isMobile} />
-              </Suspense>
+            </Suspense>
           </Main>
         </Container>
       </div>
