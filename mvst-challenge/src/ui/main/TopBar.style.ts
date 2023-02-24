@@ -11,10 +11,10 @@ export const TopBar = styled.div`
 
   & > button {
     background-color: transparent;
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 600;
     line-height: 20px;
-    padding: 7px 16px;
+    padding: 7px 10px;
     text-align: center;
     text-decoration: none;
     white-space: nowrap;
