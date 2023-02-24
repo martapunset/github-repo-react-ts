@@ -47,7 +47,7 @@ export const SidebarContent = styled.div<Props>`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: ${(props) => (props.isMobile ? `470px` : `100%`)};
+  height: ${(props) => (props.isMobile ? `490px` : `100%`)};
 `;
 
 export const Main = styled.main<Props>`
