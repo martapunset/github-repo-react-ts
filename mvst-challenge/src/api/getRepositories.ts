@@ -15,17 +15,17 @@ export async function getRepositoriesByUser(username: string): Promise<Repositor
     
 
   try {
-      const response = await axios.get(url, {headers});
+    const response = await axios.get(url, {headers});
       
     const repositories = response.data.map((repo: any) => ({
       id:repo.id,
       name: repo.name,
       html_url: repo.html_url,
-     description: repo.description,
-     language: repo.language,
+      description: repo.description,
+      language: repo.language,
       updated_at:repo.updated_at
     }));
-    console.log(repositories)
+   
     return repositories;
   } catch (error) {
     console.error(`Error fetching repositories for user ${username}: ${error}`);

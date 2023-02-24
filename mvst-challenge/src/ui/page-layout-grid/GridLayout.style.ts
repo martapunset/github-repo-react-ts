@@ -27,7 +27,6 @@ export const Container = styled.div<ContainerProps>`
   grid-template-columns: ${(props) =>
     props.isMobile ? `100vw` : `1fr 1fr 1fr;`};
   grid-template-rows: 80px 1fr;
-  // min-height: 100vh;
 `;
 
 export const Header = styled.header<Props>`
@@ -47,16 +46,14 @@ export const SidebarContent = styled.div<Props>`
   padding-top: 50px;
   display: flex;
   flex-direction: column;
-
   align-items: center;
   height: ${(props) => (props.isMobile ? `470px` : `100%`)};
-  
 `;
 
 export const Main = styled.main<Props>`
   grid-area: main;
   background-color: #fff;
   padding: 16px;
-  min-height:500px;
-  //padding-top: 50px;
+  min-height: 500px;
+ 
 `;

@@ -43,7 +43,7 @@ export const SearchBarComponent: React.FC<Props> = ({ isMobile }) => {
   const filteredRepos = repos.filter((repos) =>
     repos.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
-  let data: Repos;
+ 
 
   return (
     <>
@@ -55,7 +55,6 @@ export const SearchBarComponent: React.FC<Props> = ({ isMobile }) => {
           isMobile={isMobile}
           placeholder="Find a repository..."
         />
-  
       </div>
 
       <div>
@@ -126,4 +125,8 @@ const ContainerRepo = styled.div`
   color: black;
   max-width: 1400px;
   font-size: 14px;
+
+  &  p {
+    color:black;
+  }
 `;

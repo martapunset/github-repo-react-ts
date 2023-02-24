@@ -6,7 +6,6 @@ export const FollowButton = styled.button`
   border-radius: 6px;
   margin-top: 10px;
   margin-bottom: 10px;
-
   display: inline-block;
   font-size: 14px;
   font-weight: 600;
@@ -32,6 +31,8 @@ export const FollowButton = styled.button`
     outline: none;
     box-shadow: 0 0 0 3px rgba(46, 164, 79, 0.4);
   }
+ & > a{
+   color:black;}
 `;
 
 export const StarButton = styled.button`
@@ -39,7 +40,6 @@ export const StarButton = styled.button`
   border-radius: 10px;
   margin-top: 6px;
   margin-bottom: 10px;
-
   display: inline-block;
   font-size: 14px;
   font-weight: 400;
