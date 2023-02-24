@@ -26,8 +26,7 @@ export const SidebarComponent: React.FC<Props> = ({ user, isMobile }) => {
         <div>
           <StyledSpan>
             <strong>{user.followers}</strong> followers
-          </StyledSpan>{" "}
-          .
+          </StyledSpan>{" "}-{" "} 
           <StyledSpan>
             <strong>{user.following}</strong> following
           </StyledSpan>
