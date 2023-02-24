@@ -7,15 +7,18 @@ import { StarButton } from "../ui/page-layout-grid/Button.style";
 import { daysAgo } from "../helpers/daysAgoFunction";
 import { FaStar} from "react-icons/fa";
 import { Repos } from "../interfaces/types";  
+import ClipLoader from "react-spinners/ClipLoader";
 
 
 interface Props {
   isMobile: boolean;
+  
 }
 
 export const SearchBarComponent: React.FC<Props> = ({ isMobile }) => {
   const [repos, setrepos] = useState<Repos[]>([]);
   const [searchTerm, setSearchTerm] = useState<string>("");
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -58,11 +61,11 @@ export const SearchBarComponent: React.FC<Props> = ({ isMobile }) => {
       </div>
 
       <div>
-        {filteredRepos.length === 0 && <ContainerRepo><h2>No results found</h2></ContainerRepo>}
+        {searchTerm.length>0 && filteredRepos.length === 0 && <ContainerRepo><h2>No results found</h2></ContainerRepo>}
 
         {!searchTerm
           ? repos.map((item) => (
-              <ContainerRepo key={item.id}>
+              <ContainerRepo  key={item.id}>
                 <a href={item.html_url}>
                   <div>
                     <StyledH2>{item.name}</StyledH2>
