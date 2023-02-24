@@ -50,7 +50,7 @@ export const SearchBarComponent: React.FC<Props> = ({ isMobile }) => {
       </div>
 
       <div>
-        {filteredRepos.length === 0 && <div>No results found.</div>}
+        {filteredRepos.length === 0 && <ContainerRepo><h2>No results found</h2></ContainerRepo>}
 
         {!searchTerm
           ? repos.map((item) => (
