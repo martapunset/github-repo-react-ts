@@ -1,18 +1,8 @@
 import axios from "axios";
+import { User } from "../interfaces/types";
+
 
 const BASE_URL:string = "https://api.github.com";
-
-interface User {
-    avatar_url: string ;
-    name: string;
-    login: string;
-    html_url: string;
-    bio: string;
-    followers: number;
-    following: number;
-    email: string;
-
-}
 
 const defaultUser: User = {
   avatar_url: '',
@@ -48,7 +38,6 @@ export async function getUserInfo(username: string): Promise<User > {
    
   } catch (error) {
     console.error(`Error fetching user ${username}: ${error}`);
-    //console.log(user)
     return defaultUser;
   }
 }

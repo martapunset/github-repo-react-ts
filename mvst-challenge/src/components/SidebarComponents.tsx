@@ -3,16 +3,8 @@ import styled from "styled-components";
 import { RoundProfileImage } from "../ui/sidebar/RoundProfileImage.style";
 import { SidebarContent } from "../ui/page-layout-grid/GridLayout.style";
 import { FollowButton } from "../ui/page-layout-grid/Button.style";
-interface User {
-  avatar_url: string;
-  name: string | null;
-  login: string;
-  html_url: string;
-  bio: string;
-  followers: number;
-  following: number;
-  email: string;
-}
+import { User } from "../interfaces/types";
+
 interface Props {
   isMobile: boolean;
 
@@ -46,7 +38,6 @@ export const SidebarComponent: React.FC<Props> = ({ user, isMobile }) => {
     </SidebarContent>
   );
 };
-
 
 const UserInfoDiv = styled.div`
   display: flex;

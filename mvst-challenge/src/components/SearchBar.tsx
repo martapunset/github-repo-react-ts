@@ -4,21 +4,14 @@ import { useState, useEffect } from "react";
 import { getRepositoriesByUser } from "../api/getRepositories";
 import styled from "styled-components";
 import { StarButton } from "../ui/page-layout-grid/Button.style";
-import { SearchButton } from "../ui/page-layout-grid/Button.style";
 import { daysAgo } from "../helpers/daysAgoFunction";
-interface Repos {
-  id: number;
-  name: string;
-  html_url: string;
-  description: string;
-  language: string;
-  updated_at: string;
-}
+import { FaStar} from "react-icons/fa";
+import { Repos } from "../interfaces/types";  
+
+
 interface Props {
   isMobile: boolean;
 }
-
-
 
 export const SearchBarComponent: React.FC<Props> = ({ isMobile }) => {
   const [repos, setrepos] = useState<Repos[]>([]);
@@ -38,11 +31,10 @@ export const SearchBarComponent: React.FC<Props> = ({ isMobile }) => {
   ) => {
     setSearchTerm(event.target.value);
   };
-  const filteredUsers = repos.filter((user) =>
-    user.name.toLowerCase().includes(searchTerm.toLowerCase())
+  const filteredRepos = repos.filter((repos) =>
+    repos.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
   let data: Repos;
-
 
   return (
     <>
@@ -54,45 +46,49 @@ export const SearchBarComponent: React.FC<Props> = ({ isMobile }) => {
           isMobile={isMobile}
           placeholder="Find a repository..."
         />
-        <SearchButton>All</SearchButton>
+  
       </div>
 
       <div>
-        {filteredUsers.length === 0 && <p>No results found.</p>}
+        {filteredRepos.length === 0 && <div>No results found.</div>}
 
         {!searchTerm
           ? repos.map((item) => (
-            <ContainerRepo key={item.id}>
-              <a href={item.html_url }>
-                <div>
-                  <StyledH2>{item.name}</StyledH2>
-                  <p>{item.description}</p>
+              <ContainerRepo key={item.id}>
+                <a href={item.html_url}>
                   <div>
-                    <StyledSpan>{item.language}</StyledSpan>
-                    <StyledSpan>Modified {
-     daysAgo(item.updated_at) 
-    
-  } days ago </StyledSpan>
+                    <StyledH2>{item.name}</StyledH2>
+                    <p>{item.description}</p>
+                    <div>
+                      <StyledSpan>
+                        <strong>{item.language}</strong>
+                      </StyledSpan>
+                      <StyledSpan>
+                        Modified {daysAgo(item.updated_at)} days ago{" "}
+                      </StyledSpan>
+                    </div>
+                    <StarButton>{<FaStar></FaStar>}</StarButton>
                   </div>
-                 <StarButton>Star</StarButton>
-                </div></a>
+                </a>
               </ContainerRepo>
             ))
-          : filteredUsers.map((item) => (
-            <ContainerRepo key={item.id}>
-               <a href={item.html_url }>
-                <div>
-                  <StyledH2>{item.name}</StyledH2>
-                  <p>{item.description}</p>
+          : filteredRepos.map((item) => (
+              <ContainerRepo key={item.id}>
+                <a href={item.html_url}>
                   <div>
-                    <StyledSpan>{item.language}</StyledSpan>
-                    <StyledSpan>Modified {
-     daysAgo(item.updated_at) 
-    
-  } days ago</StyledSpan>
+                    <StyledH2>{item.name}</StyledH2>
+                    <p>{item.description}</p>
+                    <div>
+                      <StyledSpan>
+                        <strong>{item.language}</strong>
+                      </StyledSpan>
+                      <StyledSpan>
+                        Modified {daysAgo(item.updated_at)} days ago
+                      </StyledSpan>
+                    </div>
+                    <StarButton>{<FaStar></FaStar>}</StarButton>
                   </div>
-                 <StarButton>Star</StarButton>
-                </div></a>
+                </a>
               </ContainerRepo>
             ))}
       </div>
@@ -102,7 +98,7 @@ export const SearchBarComponent: React.FC<Props> = ({ isMobile }) => {
 
 const StyledSpan = styled.span`
   padding-right: 5px;
-  color:black;
+  color: black;
 `;
 
 const StyledH2 = styled.h2`
@@ -110,15 +106,15 @@ const StyledH2 = styled.h2`
   color: #006eff;
 `;
 const ContainerRepo = styled.div`
-
   margin: 10px;
   display: flex;
   flex-direction: column;
-  padding-top: 20px;
+  padding-top: 10px;
   padding-bottom: 20px;
   align-items: flex-start;
   border-top: 1px solid #b0abab;
   position: relative;
   color: black;
- 
+  max-width: 1400px;
+  font-size: 14px;
 `;

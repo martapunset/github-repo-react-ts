@@ -1,15 +1,6 @@
 import styled from "styled-components";
+import { User } from "../../interfaces/types";
 
-interface User {
-  avatar_url: string | null;
-  name: string | null;
-  login: string;
-  html_url: string;
-  bio: string;
-  followers: number;
-  following: number;
-  email: string;
-}
 interface Props {
   children: React.ReactNode;
   isMobile?: boolean;
@@ -58,7 +49,7 @@ export const SidebarContent = styled.div<Props>`
   flex-direction: column;
 
   align-items: center;
-  height: ${(props) => (props.isMobile ? `520px` : `100%`)};
+  height: ${(props) => (props.isMobile ? `470px` : `100%`)};
   
 `;
 
@@ -66,5 +57,6 @@ export const Main = styled.main<Props>`
   grid-area: main;
   background-color: #fff;
   padding: 16px;
+  min-height:500px;
   //padding-top: 50px;
 `;

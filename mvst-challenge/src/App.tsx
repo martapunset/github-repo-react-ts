@@ -16,16 +16,7 @@ const App: React.FC = () => {
   function handleWindowSizeChange(): void {
     setWidth(window.innerWidth);
   }
-  interface User {
-    avatar_url: string;
-    name: string | null;
-    login: string;
-    html_url: string;
-    bio: string;
-    followers: number;
-    following: number;
-    email: string;
-  }
+
 
   const [user, setUser] = useState({
     avatar_url: "",

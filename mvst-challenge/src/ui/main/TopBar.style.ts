@@ -7,12 +7,12 @@ export const TopBar = styled.div`
   height: 40px;
   border-bottom:1px solid grey;
   margin: 20px 10px 20px 10px;
+  max-width:1400px;
 
 
   & > button {
    
 
-   // cursor: pointer;
    background-color: transparent;
     font-size: 17px;
     font-weight: 600;

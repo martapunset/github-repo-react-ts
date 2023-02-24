@@ -1,15 +1,7 @@
 import axios from "axios";
-
+import { Repository } from "../interfaces/types";
 const BASE_URL = "https://api.github.com";
 
-interface Repository {
-  id:number
-  name: string;
-  html_url: string;
-    description: string;
-    language: string;
-    updated_at: string;
-}
 
 export async function getRepositoriesByUser(username: string): Promise<Repository[]> {
     const url:string = `${BASE_URL}/users/${username}/repos`;

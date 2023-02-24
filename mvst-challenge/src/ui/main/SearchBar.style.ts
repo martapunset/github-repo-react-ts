@@ -10,7 +10,7 @@ export const SearchBar = styled.input<SearchBarProps>`
   border-radius: 10px;
   background-color: #f2f2f2;
   font-size: ${(props) => (props.isMobile ? '15px' : '18px')};
-  width: ${(props) => (props.isMobile ? '200px' : '500px')};
+  width:70%;
   margin-right: ${(props) => (props.isMobile ? '0' : '16px')};
   margin:10px;
   transition: all 0.2s ease-in-out;

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+
 export const FollowButton = styled.button`
   border: 1px solid grey;
   border-radius: 6px;
@@ -41,13 +42,14 @@ export const StarButton = styled.button`
 
   display: inline-block;
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 400;
   line-height: 20px;
-  padding: 6px 16px;
+  padding: 5px 9px;
   text-align: center;
   text-decoration: none;
   white-space: nowrap;
-  width: 80px;
+  width: 40px;
+  height: 30px;
   position: absolute;
   right: 0px;
   top: 10px;
