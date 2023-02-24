@@ -104,5 +104,17 @@ To start project run in the terminal `npm run dev`
 - [ReactJS](https://reactjs.org/)
 - [React-icons](https://react-icons.github.io/react-icons/)
 - [Axios](https://www.npmjs.com/package/axios)
+- [Typescript](https://www.typescriptlang.org/)
+- [Typedoc](https://typedoc.org/)
 - [Styled-components](https://styled-components.com/)
+
+
+## Future implements
+
+-Search bar in the header for USERS search
+-Night mode
+
+
+## Feedback
+It has been a brief yet excellent exercise that allowed me to test and further develop my front-end skills under pressure. I am thoroughly satisfied with the outcome.
 
