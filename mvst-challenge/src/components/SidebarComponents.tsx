@@ -7,7 +7,6 @@ import { User } from "../interfaces/types";
 
 interface Props {
   isMobile: boolean;
-
   user: User;
   children?: React.ReactNode;
 }

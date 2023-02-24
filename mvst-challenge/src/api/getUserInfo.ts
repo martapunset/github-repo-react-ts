@@ -1,8 +1,8 @@
 import axios from "axios";
 import { User } from "../interfaces/types";
+import { BASE_URL } from "./baseUrl";
 
 
-const BASE_URL:string = "https://api.github.com";
 
 const defaultUser: User = {
   avatar_url: '',
@@ -15,14 +15,20 @@ const defaultUser: User = {
   email: ''
 };
 
-export async function getUserInfo(username: string): Promise<User > {
+/**
+ * given an username the function returns its data
+ * @param username 
+ * @returns user data from api
+ */
+
+export async function getUserInfo(username: string): Promise<User> {
+
     const url = `${BASE_URL}/users/${username}`;
     const headers: object = { Authorization: `Bearer ${import.meta.env.VITE_GITHUB_TOKEN}` }; 
 
   try {
       const response = await axios.get(url, {headers});
-      console.log("..raw response USER....", response.data)
-      
+
       const user: User = {
         login: response.data.login,
         html_url: response.data.html_url,

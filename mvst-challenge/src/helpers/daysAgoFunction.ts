@@ -1,3 +1,9 @@
+/**
+ * The function calculates difference between dates
+ * @param dateString given date
+ * @returns diffDays
+ */
+
 export function daysAgo(dateString: string): number {
     const date = new Date(dateString);
     const today = new Date();

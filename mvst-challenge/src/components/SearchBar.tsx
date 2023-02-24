@@ -26,11 +26,20 @@ export const SearchBarComponent: React.FC<Props> = ({ isMobile }) => {
     fetchData();
   }, []);
 
+  /**
+   * The function updates searchTerm useState when the event is triggered 
+   * @param event comes from an input search bar
+   */
+
   const handleSearchInputChange = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
     setSearchTerm(event.target.value);
   };
+
+  /**
+   * The function filters repos array including searchTerm in its name
+   */
   const filteredRepos = repos.filter((repos) =>
     repos.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
