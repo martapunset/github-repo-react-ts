@@ -1,7 +1,8 @@
-import { useState, useEffect} from "react";
+import { useState, useEffect, lazy} from "react";
 import styled from "styled-components";
 import { getUserInfo } from "./api/getUserInfo";
-import { SearchBarComponent } from "./components/SearchBar";
+import { Suspense } from "react";
+
 import {
   Container,
   Header,
@@ -9,6 +10,9 @@ import {
 } from "./ui/page-layout-grid/GridLayout.style";
 import { SidebarComponent } from "./components/SidebarComponents";
 import { TopBar } from "./ui/main/TopBar.style";
+//import { SearchBarComponent } from "./components/SearchBar";
+
+const SearchBarComponent=lazy(()=>import('./components/SearchBar'))
 
 const App: React.FC = () => {
   const [width, setWidth] = useState<number>(window.innerWidth);
@@ -63,7 +67,9 @@ const App: React.FC = () => {
               <button>Repositories</button>
               <button>Projects</button>
             </TopBar>
-            <SearchBarComponent isMobile={isMobile} />
+            <Suspense fallback={<div>Loading...</div>}>
+              <SearchBarComponent isMobile={isMobile} />
+              </Suspense>
           </Main>
         </Container>
       </div>

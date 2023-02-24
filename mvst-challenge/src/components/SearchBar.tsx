@@ -7,15 +7,14 @@ import { StarButton } from "../ui/page-layout-grid/Button.style";
 import { daysAgo } from "../helpers/daysAgoFunction";
 import { FaStar} from "react-icons/fa";
 import { Repos } from "../interfaces/types";  
-import ClipLoader from "react-spinners/ClipLoader";
-
+import { ContainerRepo } from "../ui/main/ContainerRepo.style";
 
 interface Props {
   isMobile: boolean;
   
 }
 
-export const SearchBarComponent: React.FC<Props> = ({ isMobile }) => {
+ const SearchBarComponent: React.FC<Props> = ({ isMobile }) => {
   const [repos, setrepos] = useState<Repos[]>([]);
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [isLoading, setIsLoading] = useState(false);
@@ -106,6 +105,7 @@ export const SearchBarComponent: React.FC<Props> = ({ isMobile }) => {
     </>
   );
 };
+export default SearchBarComponent;
 
 const StyledSpan = styled.span`
   padding-right: 5px;
@@ -116,20 +116,4 @@ const StyledH2 = styled.h2`
   padding: 0;
   color: #006eff;
 `;
-const ContainerRepo = styled.div`
-  margin: 10px;
-  display: flex;
-  flex-direction: column;
-  padding-top: 10px;
-  padding-bottom: 20px;
-  align-items: flex-start;
-  border-top: 1px solid #b0abab;
-  position: relative;
-  color: black;
-  max-width: 1400px;
-  font-size: 14px;
 
-  &  p {
-    color:black;
-  }
-`;
